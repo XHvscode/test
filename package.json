@@ -2,6 +2,7 @@
 	"name": "helloworld",
 	"displayName": "HelloWorld",
 	"description": "hello world plugin",
+	"publisher": "xiaohao",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.40.0"
@@ -9,15 +10,27 @@
 	"categories": [
 		"Other"
 	],
+	"icon": "images/icon.jpeg",
 	"activationEvents": [
 		"onCommand:extension.helloWorld"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
-		"commands": [{
-			"command": "extension.helloWorld",
-			"title": "Hello World"
-		}]
+		"commands": [
+			{
+				"command": "extension.helloWorld",
+				"title": "Hello World"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "extension.helloWorld",
+				"key": "ctrl+f3",
+				"mac": "cmd+f3",
+				"linux": "ctrl+f3",
+				"when": "editorTextFocus"
+			}
+		]
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
