@@ -12,7 +12,8 @@
 	],
 	"icon": "images/icon.jpeg",
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onCommand:extension.helloWorld",
+		"onCommand:extension.getCurrentFilePath"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -20,6 +21,10 @@
 			{
 				"command": "extension.helloWorld",
 				"title": "Hello World"
+			},
+			{
+				"command": "extension.getCurrentFilePath",
+				"title": "Get Current File Path"
 			}
 		],
 		"keybindings": [
@@ -30,7 +35,22 @@
 				"linux": "ctrl+f3",
 				"when": "editorTextFocus"
 			}
-		]
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"when": "editor.focus",
+					"command": "extension.getCurrentFilePath",
+					"group": "xiaohao"
+				}
+			],
+			"explorer/context": [
+				{
+					"command": "extension.getCurrentFilePath",
+					"group": "xiaohao"
+				}
+			]
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",

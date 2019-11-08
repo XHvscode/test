@@ -22,7 +22,12 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 
 	context.subscriptions.push(disposable);
+
+	let curfile = vscode.commands.registerCommand("extension.getCurrentFilePath", (url) => {
+		vscode.window.showInformationMessage(`当前文件(夹)路径是:${url ? url.path : '空'}`);
+	});
+	context.subscriptions.push(curfile);
 }
 
 // this method is called when your extension is deactivated
-export function deactivate() {}
+export function deactivate() { }
